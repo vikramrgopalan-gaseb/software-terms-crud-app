@@ -1,0 +1,21 @@
+<!-- views/new.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create a term</title>
+  </head>
+  <body>
+    <h1>Create a Term!</h1>
+    <form action="/term" method="POST">
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name" />
+
+        <label for="buy">Buy?</label>
+        <button type="submit">Create Term</button>
+    </form>
+    <a href="/home/">Back to Home</a>
+  </body>
+</html>
