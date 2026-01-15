@@ -59,35 +59,3 @@ app.get("/", (req, res) => {
 });
 
 app.use("/auth", authController);
-
-// wrap userinDatabase in async function (auth controller, fruits skyrockit sign up)
-
-const userInDatabase = await User.findOne({ username: req.body.username });
-if (userInDatabase) {
-  return res.send("Username already taken.");
-}
-
-if (req.body.password !== req.body.confirmPassword) {
-  return res.send("Password and Confirm Password must match");
-}
-
-const hashedPassword = bcrypt.hashSync(req.body.password, 10);
-req.body.password = hashedPassword;
-
-const validPassword = bcrypt.compareSync(
-  req.body.password,
-  userInDatabase.password
-);
-if (!validPassword) {
-  return res.send("Login failed. Please try again.");
-}
-
-// validation logic
-
-const user = await User.create(req.body);
-res.send(`Thanks for signing up ${user.username}`);
-
-const userInDatabase = await User.findOne({ username: req.body.username });
-if (!userInDatabase) {
-  return res.send("Login failed. Please try again.");
-}
