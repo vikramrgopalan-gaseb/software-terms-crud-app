@@ -59,3 +59,28 @@ app.get("/", (req, res) => {
 });
 
 app.use("/auth", authController);
+
+// Import the user model
+
+const User = require("./models/user.js");
+app.use(morgan('dev'));
+app.use(express.urlencoded({ extended: false }));
+app.use(methodOverride("_method"));
+
+// Import the application model
+
+const Application = require("./models/application.js");
+app.use(morgan('dev'));
+app.use(express.urlencoded({ extended: false }));
+app.use(methodOverride("_method"));
+
+// New term
+
+app.get("/new-term", (req, res) => {
+  res.render("views/new.ejs");
+});
+
+app.post("/all-terms", async (req, res) => {
+  const newTerm = await Term.create(req.body);
+   res.redirect("/all-terms");
+});
