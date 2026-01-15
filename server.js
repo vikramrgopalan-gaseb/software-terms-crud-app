@@ -11,6 +11,8 @@ const authController = require("./controllers/auth.js");
 
 const session = require('express-session');
 
+const MongoStore = require("connect-mongo");
+
 // Set the port from environment variable or default to 3000
 const port = process.env.PORT ? process.env.PORT : "3000";
 
@@ -35,6 +37,9 @@ app.use(
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: true,
+    store: MongoStore.create({
+      mongoUrl: process.env.MONGODB_URI,
+    }),
   })
 );
 
@@ -47,8 +52,10 @@ app.listen(port, () => {
 // server.js
 
 // GET /
-app.get("/", async (req, res) => {
-  res.render("index.ejs");
+app.get("/", (req, res) => {
+  res.render("index.ejs", {
+    user: req.session.user,
+  });
 });
 
 app.use("/auth", authController);
@@ -84,4 +91,3 @@ const userInDatabase = await User.findOne({ username: req.body.username });
 if (!userInDatabase) {
   return res.send("Login failed. Please try again.");
 }
-
