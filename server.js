@@ -52,6 +52,7 @@ app.listen(port, () => {
 // AUTHENTICATION
 
 // GET TO INDEX
+
 app.get("/", (req, res) => {
   res.render("index.ejs", {
     user: req.session.user,
@@ -98,4 +99,18 @@ app.post("/terms", async (req, res) => {
 app.get("/terms", async (req, res) => {
   const allTerms = await Term.find();
   res.render("terms/index.ejs", { terms: allTerms });
+});
+
+// Update a term (UPDATE)
+
+app.get("/update-term", async (req, res) => {
+    const targetTerm = await Term.findByIdAndUpdate(req.params.termId, req.body);
+    res.redirect("/terms");
+});
+
+// Delete a term (DELETE)
+
+app.delete("/terms/:termId", async (req, res) => {
+  await Term.findByIdAndDelete(req.params.termId);
+  res.redirect("/terms");
 });
