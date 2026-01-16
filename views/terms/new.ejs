@@ -10,16 +10,16 @@
   <body>
     <h1>Create a Term!</h1>
     <form action="/terms" method="POST">
-        <label for="name">Name:</label>
-        <input type="text" name="name" id="name" />
+        <label for="term">Term:</label>
+        <input type="text" name="term" id="term" />
 <!-- CREATE TEXT BOXES FOR DEFINITION AND CATEGORY, LOOK AT REQUIRED ATTRIBUTE -->
     <h1>Definition</h1>
-    <% const userComment = "This is a pre-filled comment that can span multiple lines."; %>
+    <% const userComment = "Define the term here"; %>
     <label for="definition">Definition:</label><br>
     <!-- The textarea with dynamically set content -->
     <textarea id="definition" name="definition" rows="4" cols="50"><%= userComment %></textarea>
     <h1>Category</h1>
-    <% const Category = "Front End"; %> <!-- Example variable in EJS -->
+    <% const Category = "front end, back end or dev ops"; %> <!-- Example variable in EJS -->
     <label for="category">Category:</label>
     <!-- The input field with a dynamically set value -->
     <input type="text" id="category" name="category" value="<%= Category %>" placeholder="Enter category">

@@ -91,17 +91,17 @@ app.get("/new-term", (req, res) => {
 
 app.post("/terms", async (req, res) => {
   const newTerm = await Term.create(req.body);
-   res.redirect("terms/index.ejs");
+   res.redirect("/terms");
 });
 
 // All terms (READ)
 
 app.get("/terms", async (req, res) => {
   const allTerms = await Term.find();
-  res.render("terms/index.ejs", { terms: allTerms });
+  res.render("terms/index.ejs", { terms: allTerms }); // Look at changing property inside the object
 });
 
-// Update a term (UPDATE)
+// Update a term (UPDATE) // LOOK AT EMBEDED DATA LECTURE/LAB
 
 app.get("/update-term", async (req, res) => {
     const targetTerm = await Term.findByIdAndUpdate(req.params.termId, req.body);
@@ -114,3 +114,5 @@ app.delete("/terms/:termId", async (req, res) => {
   await Term.findByIdAndDelete(req.params.termId);
   res.redirect("/terms");
 });
+
+// Create a form the follows structure of delete routes

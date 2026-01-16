@@ -18,13 +18,13 @@
             </tr>
         </thead>
         <tbody>
-            <% userList.forEach(User) { %>
+            <% userList.forEach((user) => { %>
                 <tr>
                     <td><%= user.term %></td>
                     <td><%= user.definition %></td>
                     <td><%= user.category %></td>
                 </tr>
-            <% }); %>
+            <% }) %>
         </tbody>
         </table>
     </h1>
