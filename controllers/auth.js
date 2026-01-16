@@ -41,7 +41,7 @@ router.post('/sign-up', async (req, res) => {
   
     // All ready to create the new user!
     await User.create(req.body);
-    res.send(`Thanks for signing up ${user.username}`);
+    // res.send(`Thanks for signing up ${user.username}`);
   
     res.redirect('/auth/sign-in');
   } catch (error) {
@@ -78,10 +78,9 @@ router.post('/sign-in', async (req, res) => {
     };
 
     req.session.save(() => {
-    res.redirect("/");
+    res.redirect("/home");
     });
   
-    res.redirect('/');
   } catch (error) {
     console.log(error);
     res.redirect('/');

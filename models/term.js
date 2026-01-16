@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const applicationSchema = new mongoose.Schema({
+const termSchema = new mongoose.Schema({
   term: {
     type: String,
     required: true,
@@ -16,6 +16,6 @@ const applicationSchema = new mongoose.Schema({
 }
 });
 
-const Application = mongoose.model("Application", applicationSchema);
+const Term = mongoose.model("Term", termSchema);
 
-module.exports = applicationSchema;
+module.exports = Term;

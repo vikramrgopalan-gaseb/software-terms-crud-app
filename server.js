@@ -31,7 +31,9 @@ app.use(morgan('dev'));
 
 app.use(methodOverride("_method"));
 app.use(morgan('dev'));
-// new
+
+// Session Save
+
 app.use(
   session({
     secret: process.env.SESSION_SECRET,
@@ -49,13 +51,19 @@ app.listen(port, () => {
 
 // AUTHENTICATION
 
-// server.js
-
-// GET /
+// GET TO INDEX
 app.get("/", (req, res) => {
   res.render("index.ejs", {
     user: req.session.user,
   });
+});
+
+// GET TO HOME
+
+app.get("/home", (req, res) => {
+   res.render("home.ejs", {
+    user: req.session.user,
+   });
 });
 
 app.use("/auth", authController);
@@ -69,25 +77,25 @@ app.use(methodOverride("_method"));
 
 // Import the application model
 
-const Application = require("./models/application.js");
+const Term = require("./models/term.js");
 app.use(morgan('dev'));
 app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride("_method"));
 
-// New term (CREATE)
+// New term (CREATE) // CONSIDER CREATING A CONTROLLER FOR NEW TERM CREATION
 
 app.get("/new-term", (req, res) => {
-  res.render("views/new.ejs");
+  res.render("terms/new.ejs");
 });
 
-app.post("/all-terms", async (req, res) => {
+app.post("/terms", async (req, res) => {
   const newTerm = await Term.create(req.body);
-   res.redirect("/all-terms");
+   res.redirect("terms/index.ejs");
 });
 
 // All terms (READ)
 
-app.get("/all-terms", async (req, res) => {
+app.get("/terms", async (req, res) => {
   const allTerms = await Term.find();
-  res.render("views/all-terms.ejs", { terms: allTerms });
+  res.render("terms/index.ejs", { terms: allTerms });
 });
