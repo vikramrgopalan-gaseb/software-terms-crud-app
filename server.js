@@ -74,7 +74,7 @@ app.use(morgan('dev'));
 app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride("_method"));
 
-// New term
+// New term (CREATE)
 
 app.get("/new-term", (req, res) => {
   res.render("views/new.ejs");
@@ -83,4 +83,11 @@ app.get("/new-term", (req, res) => {
 app.post("/all-terms", async (req, res) => {
   const newTerm = await Term.create(req.body);
    res.redirect("/all-terms");
+});
+
+// All terms (READ)
+
+app.get("/all-terms", async (req, res) => {
+  const allTerms = await Term.find();
+  res.render("views/all-terms.ejs", { terms: allTerms });
 });
