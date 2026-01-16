@@ -13,8 +13,17 @@
         <label for="name">Name:</label>
         <input type="text" name="name" id="name" />
 <!-- CREATE TEXT BOXES FOR DEFINITION AND CATEGORY, LOOK AT REQUIRED ATTRIBUTE -->
-        <label for="buy">Buy?</label>
-        <button type="submit">Create Term</button>
+    <h1>Definition</h1>
+    <% const userComment = "This is a pre-filled comment that can span multiple lines."; %>
+    <label for="definition">Definition:</label><br>
+    <!-- The textarea with dynamically set content -->
+    <textarea id="definition" name="definition" rows="4" cols="50"><%= userComment %></textarea>
+    <h1>Category</h1>
+    <% const Category = "Front End"; %> <!-- Example variable in EJS -->
+    <label for="category">Category:</label>
+    <!-- The input field with a dynamically set value -->
+    <input type="text" id="category" name="category" value="<%= Category %>" placeholder="Enter category">
+    <button type="submit">Create Term</button>
     </form>
     <a href="/home/">Back to Home</a>
   </body>

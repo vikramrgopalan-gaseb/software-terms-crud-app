@@ -8,7 +8,25 @@
     <title>View all terms</title>
   </head>
   <body>
-    <h1><!-- add a table for the terms -->
+    <h1>
+        <table>
+            <thead>
+            <tr>
+                <th>Term</th>
+                <th>Definition</th>
+                <th>Category</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% userList.forEach(User) { %>
+                <tr>
+                    <td><%= user.term %></td>
+                    <td><%= user.definition %></td>
+                    <td><%= user.category %></td>
+                </tr>
+            <% }); %>
+        </tbody>
+        </table>
     </h1>
   </body>
 </html>

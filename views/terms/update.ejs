@@ -1,0 +1,33 @@
+<!-- terms/update.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Update a term</title>
+  </head>
+  <body>
+    <h1>
+        <table>
+            <thead>
+            <tr>
+                <th>Term</th>
+                <th>Definition</th>
+                <th>Category</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% userList.forEach(User) { %>
+                <tr>
+                    <td><%= user.term %></td>
+                    <td><%= user.definition %></td>
+                    <td><%= user.category %></td>
+                </tr>
+            <% }); %>
+        </tbody>
+        </table>
+    </h1>
+    <button type="update">Update</button>
+  </body>
+</html>
