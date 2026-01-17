@@ -83,22 +83,24 @@ app.use(morgan('dev'));
 app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride("_method"));
 
-// New term (CREATE) // CONSIDER CREATING A CONTROLLER FOR NEW TERM CREATION
+// New term (CREATE) // CONSIDER ADDING TRY CATCH ERROR HANDLING
 
 app.get("/new-term", (req, res) => {
   res.render("terms/new.ejs");
 });
 
 app.post("/terms", async (req, res) => {
-  const newTerm = await Term.create(req.body);
+  const currentUser = await User.findById(req.session.user._id)
+  currentUser.terms.push(req.body)
+  await currentUser.save()
    res.redirect("/terms");
 });
 
-// All terms (READ)
+// All terms (READ) // CONSIDER ADDING TRY CATCH ERROR HANDLING
 
 app.get("/terms", async (req, res) => {
-  const allTerms = await Term.find();
-  res.render("terms/index.ejs", { terms: allTerms }); // Look at changing property inside the object
+  const currentUser = await User.findById(req.session.user._id)
+  res.render("terms/index.ejs", { terms: currentUser.terms });
 });
 
 // Update a term (UPDATE) // LOOK AT EMBEDED DATA LECTURE/LAB
