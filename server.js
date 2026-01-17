@@ -103,18 +103,25 @@ app.get("/terms", async (req, res) => {
   res.render("terms/index.ejs", { terms: currentUser.terms });
 });
 
-// Update a term (UPDATE) // LOOK AT EMBEDED DATA LECTURE/LAB
+// Update a term (UPDATE) // CONSIDER ADDING TRY CATCH ERROR HANDLING
 
-app.get("/update-term", async (req, res) => {
-    const targetTerm = await Term.findByIdAndUpdate(req.params.termId, req.body);
-    res.redirect("/terms");
+app.put("/update-term/:termId", async (req, res) => {
+    const currentUser = await User.findById(req.session.user._id)
+    const term = currentUser.terms.id(req.params.termId)
+    term.set(req.body)
+        await currentUser.save()
+    res.redirect('/terms')
 });
 
-// Delete a term (DELETE)
+// JUST MAKE UPDATE AND DELETE LINK TO A SHOW PAGE
+
+// Delete a term (DELETE) // CONSIDER ADDING TRY CATCH ERROR HANDLING
 
 app.delete("/terms/:termId", async (req, res) => {
-  await Term.findByIdAndDelete(req.params.termId);
+  const currentUser = await User.findById(req.session.user._id)
+  currentUser.terms.id(req.params.termId).deleteOne()
+  await currentUser.save()
   res.redirect("/terms");
 });
 
-// Create a form the follows structure of delete routes
+// NEED A SEPARATE ROUTE TO RENDER THE DELETE PAGE, OTHERWISE DO A DELETE OFF THE SHOW PAGE IN SKYROCKIT

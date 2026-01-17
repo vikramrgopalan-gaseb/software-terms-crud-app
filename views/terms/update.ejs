@@ -8,26 +8,18 @@
     <title>Update a term</title>
   </head>
   <body>
-    <h1>
-        <table>
-            <thead>
-            <tr>
-                <th>Term</th>
-                <th>Definition</th>
-                <th>Category</th>
-            </tr>
-        </thead>
-        <tbody>
-            <% userList.forEach(User) => { %>
-                <tr>
-                    <td><%= user.term %></td>
-                    <td><%= user.definition %></td>
-                    <td><%= user.category %></td>
-                </tr>
-            <% }); %>
-        </tbody>
-        </table>
-    </h1>
-    <button type="update">Update</button>
+     <form action="/update-term/<%= term._id %>?_method=PUT" method="POST">
+  <label for="term">Term:</label>
+  <input type="text" name="term" id="term" value="<%= term.term %>" />
+
+  <label for="definition">Definition:</label>
+  <input type="text" name="definition" id="definition" value="<%= term.definition %>"/>
+
+  <label for="category">Category:</label>
+  <textarea name="notes" id="category" value="<%= term.category %>"></textarea>
+
+  <button type="update">Update</button>
+</form>
+</div>
   </body>
 </html>
