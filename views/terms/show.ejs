@@ -1,34 +1,24 @@
-<!-- terms/delete.ejs MAKE THIS THE SHOW PAGE FOR INDIVIDUAL TERMS, MAKE SURE HAVE ROUTE FOR SHOW PAGE -->
+<!-- terms/show.ejs MAKE THIS THE SHOW PAGE FOR INDIVIDUAL TERMS, MAKE SURE HAVE ROUTE FOR SHOW PAGE -->
 
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Delete a term</title>
+    <title><%= term.term %></title>
   </head>
   <body>
-    <h1>
-        <table>
-            <thead>
-            <tr>
-                <th>Term</th>
-                <th>Definition</th>
-                <th>Category</th>
-            </tr>
-        </thead>
-        <tbody>
-            <% userList.forEach(User) => { %>
-                <tr>
-                    <td><%= user.term %></td>
-                    <td><%= user.definition %></td>
-                    <td><%= user.category %></td>
-                </tr>
-            <% }); %>
-        </tbody>
-        </table>
-    </h1>
-    < button type "edit" -> a tag that links to update.ejs
-    <button type="delete">Delete</button> -> make this a form
+    <%- include('../partials/_navbar.ejs') %>
+    <tr>
+    <td><%= term.term %></td>
+    <td><%= term.definition %></td>
+    <td><%= term.category %></td>
+    </tr>
+  <form
+      action="/users/<%= user._id %>/terms/<%= term._id %>?_method=DELETE"
+      method="POST"
+    >
+      <button type="submit">Delete this term</button>
+  </form>
   </body>
 </html>

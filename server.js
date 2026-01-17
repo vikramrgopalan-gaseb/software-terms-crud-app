@@ -86,7 +86,9 @@ app.use(methodOverride("_method"));
 // New term (CREATE) // CONSIDER ADDING TRY CATCH ERROR HANDLING
 
 app.get("/new-term", (req, res) => {
-  res.render("terms/new.ejs");
+  res.render("terms/new.ejs", {
+    user: req.session.user
+});
 });
 
 app.post("/terms", async (req, res) => {
@@ -100,10 +102,17 @@ app.post("/terms", async (req, res) => {
 
 app.get("/terms", async (req, res) => {
   const currentUser = await User.findById(req.session.user._id)
-  res.render("terms/index.ejs", { terms: currentUser.terms });
+  res.render("terms/index.ejs", { user: req.session.user, terms: currentUser.terms });
 });
 
 // Update a term (UPDATE) // CONSIDER ADDING TRY CATCH ERROR HANDLING
+
+app.get('/update-term/:termId', async (req, res) => {
+  const currentUser = await User.findById(req.session.user._id)
+  const term = currentUser.terms.id(req.params.termId)
+  res.render(`terms/show.ejs`, { terms: currentUser.term
+  });
+});
 
 app.put("/update-term/:termId", async (req, res) => {
     const currentUser = await User.findById(req.session.user._id)
@@ -117,7 +126,7 @@ app.put("/update-term/:termId", async (req, res) => {
 
 // Delete a term (DELETE) // CONSIDER ADDING TRY CATCH ERROR HANDLING
 
-app.delete("/terms/:termId", async (req, res) => {
+app.delete("/:termId", async (req, res) => {
   const currentUser = await User.findById(req.session.user._id)
   currentUser.terms.id(req.params.termId).deleteOne()
   await currentUser.save()

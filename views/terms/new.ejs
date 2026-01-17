@@ -18,12 +18,18 @@
     <!-- The textarea with dynamically set content -->
     <textarea id="definition" name="definition" rows="4" cols="50"><%= userComment %></textarea>
     <h1>Category</h1>
-    <% const Category = "front end, back end or dev ops"; %> <!-- Example variable in EJS -->
     <label for="category">Category:</label>
-    <!-- The input field with a dynamically set value -->
-    <input type="text" id="category" name="category" value="<%= Category %>" placeholder="Enter category">
+    <select id="category" name="category">
+    <option value="front end">Front End</option>
+    <option value="back end">Back End</option>
+    <option value="dev ops">Dev Ops</option>
+    </select>
+
     <button type="submit">Create Term</button>
+    
     </form>
+
     <a href="/home/">Back to Home</a>
+
   </body>
 </html>
