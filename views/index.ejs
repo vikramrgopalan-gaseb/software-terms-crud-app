@@ -5,8 +5,22 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
     <title>Splash Page</title>
   </head>
+  <body class="index-body">
+  <%- include('./partials/_navbar.ejs') %>
+  <div class="index-container">
+    <div class="text-container">
+      <h1 class="main-header">Software Engineering Terms</h1>
+      <p class="subheader">Create and define terms to improve knowledge.</p>
+    </div>
+    <div class="auth-links">
+      <a class="signup-link" href="/auth/sign-up">Sign Up</a>
+      <a class="signin-link" href="/auth/sign-in">Sign In</a>
+    </div>
+  </div>
+  </body>
   <body>
     <%- include('./partials/_navbar.ejs') %>
     <% if (user) { %>
