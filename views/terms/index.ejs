@@ -1,4 +1,4 @@
-<!-- terms/index.ejs  ADD LINKS TO SHOW PAGE INSIDE FOR LOOP-->
+<!-- all-terms/index.ejs  ADD LINKS TO SHOW PAGE INSIDE FOR LOOP-->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -12,22 +12,23 @@
     <h1>
         <table>
             <thead>
-            <tr>
-                <th>Term</th>
-                <th>Definition</th>
-                <th>Category</th>
-            </tr>
-        </thead>
-        <tbody>
+                <tr>
+                    <th>Term</th>
+                    <th>Definition</th>
+                    <th>Category</th>
+                </tr>
+            </thead>
+            <tbody>
             <% terms.forEach((term) => { %>
                 <tr>
-                    <a href="/users/<%= user._id %>/terms/<%= term._id %>"></a>
+                    <a href="/terms/<%= term._id %>">
                     <td><%= term.term %></td>
                     <td><%= term.definition %></td>
                     <td><%= term.category %></td>
+                </a>
                 </tr>
             <% }) %>
-        </tbody>
+            </tbody>
         </table>
     </h1>
   </body>

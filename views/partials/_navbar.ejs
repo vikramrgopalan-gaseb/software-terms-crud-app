@@ -4,8 +4,9 @@
   <% if(user) { %>
   <div class="navbar">
     <h1 id="nav-header">Software Terms</h1>
+    <h2 id="greeting">Welcome, <%= user.username %></h2>
     <div class="nav-links">
-      <a class="authlink" href="/users/<%= user._id %>">Your Terms</a>
+      <a class="authlink" href="/home">Home</a>
       <a class="authlink" href="/auth/sign-out">Sign Out</a>
     </div>
   </div>

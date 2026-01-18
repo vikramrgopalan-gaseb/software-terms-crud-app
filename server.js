@@ -107,14 +107,29 @@ app.get("/terms", async (req, res) => {
 
 // Update a term (UPDATE) // CONSIDER ADDING TRY CATCH ERROR HANDLING
 
-app.get('/update-term/:termId', async (req, res) => {
-  const currentUser = await User.findById(req.session.user._id)
-  const term = currentUser.terms.id(req.params.termId)
-  res.render(`terms/show.ejs`, { terms: currentUser.term
-  });
+// SHOW
+
+app.get('/:termId', async (req, res) => {
+    const currentUser = await User.findById(req.session.user._id);
+    const term = currentUser.terms.id(req.params.termId);
+    res.render('terms/show.ejs', {
+      user: req.session.user, term: currentUser.terms,
+    });
 });
 
-app.put("/update-term/:termId", async (req, res) => {
+// EDIT
+
+app.get('/:termId/edit', async (req, res) => {
+    const currentUser = await User.findById(req.session.user._id);
+    const application = currentUser.applications.id(req.params.applicationId);
+    res.render('terms/edit.ejs', {
+      user: req.session.user, term: currentUser.terms,
+    });
+});
+
+// UPDATE
+
+app.put('/:termId', async (req, res) => {
     const currentUser = await User.findById(req.session.user._id)
     const term = currentUser.terms.id(req.params.termId)
     term.set(req.body)
@@ -122,15 +137,24 @@ app.put("/update-term/:termId", async (req, res) => {
     res.redirect('/terms')
 });
 
-// JUST MAKE UPDATE AND DELETE LINK TO A SHOW PAGE
+// DELETE
 
-// Delete a term (DELETE) // CONSIDER ADDING TRY CATCH ERROR HANDLING
-
-app.delete("/:termId", async (req, res) => {
+app.delete('/:termId', async (req, res) => {
   const currentUser = await User.findById(req.session.user._id)
   currentUser.terms.id(req.params.termId).deleteOne()
   await currentUser.save()
   res.redirect("/terms");
 });
+
+/////////////////////////////////////////////////////////
+
+/* app.get('/update', async (req, res) => {
+  const currentUser = await User.findById(req.session.user._id)
+  const term = currentUser.terms.id(req.params.termId)
+  res.render(`terms/show.ejs`, { user: req.session.user, terms: currentUser.terms
+  });
+}); */
+
+// JUST MAKE UPDATE AND DELETE LINK TO A SHOW PAGE
 
 // NEED A SEPARATE ROUTE TO RENDER THE DELETE PAGE, OTHERWISE DO A DELETE OFF THE SHOW PAGE IN SKYROCKIT

@@ -8,17 +8,19 @@
     <title>Create a term</title>
   </head>
   <body>
+    <%- include('../partials/_navbar.ejs') %>
     <h1>Create a Term!</h1>
+    <h1>Term</h1>
     <form action="/terms" method="POST">
-        <label for="term">Term:</label>
+        <label for="term"></label>
         <input type="text" name="term" id="term" />
     <h1>Definition</h1>
     <% const userComment = "Define the term here"; %>
-    <label for="definition">Definition:</label><br>
+    <label for="definition"></label><br>
     <!-- The textarea with dynamically set content -->
     <textarea id="definition" name="definition" rows="4" cols="50"><%= userComment %></textarea>
     <h1>Category</h1>
-    <label for="category">Category:</label>
+    <label for="category"></label>
     <select id="category" name="category">
     <option value="front end">Front End</option>
     <option value="back end">Back End</option>
@@ -28,8 +30,6 @@
     <button type="submit">Create Term</button>
     
     </form>
-
-    <a href="/home/">Back to Home</a>
 
   </body>
 </html>

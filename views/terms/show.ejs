@@ -5,22 +5,22 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%= term.term %></title>
+    <title>Term</title>
   </head>
   <body>
     <%- include('../partials/_navbar.ejs') %>
     <tr>
-    <td><%= term.term %></td>
-    <td><%= term.definition %></td>
-    <td><%= term.category %></td>
+      <td><%= term.term %></td>
+      <td><%= term.definition %></td>
+      <td><%= term.category %></td>
     </tr>
 
-  <a href="/users/<%= user._id %>/terms/<%= term._id %>/edit">
+  <a href="/terms/<%= term._id %>/edit">
       Edit this term
     </a>
 
   <form
-      action="/users/<%= user._id %>/terms/<%= term._id %>?_method=DELETE"
+      action="/terms/<%= term._id %>?_method=DELETE"
       method="POST"
     >
       <button type="submit">Delete this term</button>
