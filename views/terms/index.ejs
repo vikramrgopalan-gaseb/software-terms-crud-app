@@ -10,6 +10,8 @@
   </head>
   <body>
     <%- include('../partials/_navbar.ejs') %>
+    <div class="all-apps-body">
+    <div class="all-apps-header">
     <h1>
         <table>
             <thead>
@@ -20,6 +22,7 @@
                 </tr>
             </thead>
             <tbody>
+            </div>
             <% terms.forEach((term) => { %>
                 <tr>
                     <a href="/terms/<%= term._id %>">
@@ -30,6 +33,7 @@
                 </tr>
             <% }) %>
             </tbody>
+            </div>
         </table>
     </h1>
   </body>

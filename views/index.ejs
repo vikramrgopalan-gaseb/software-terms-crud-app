@@ -10,6 +10,12 @@
   </head>
   <body class="index-body">
   <%- include('./partials/_navbar.ejs') %>
+  <% if (user) { %>
+    <h1>Welcome to the app, <%= user.username %>!</h1>
+    <a href="/auth/sign-out">Sign out</a>
+    <% } else { %>
+    <h1>Welcome to the app, guest. Sign up or Sign in to get started.</h1>
+    <% } %>
   <div class="index-container">
     <div class="text-container">
       <h1 class="main-header">Software Engineering Terms</h1>
@@ -20,14 +26,5 @@
       <a class="signin-link" href="/auth/sign-in">Sign In</a>
     </div>
   </div>
-  </body>
-  <body>
-    <%- include('./partials/_navbar.ejs') %>
-    <% if (user) { %>
-    <h1>Welcome to the app, <%= user.username %>!</h1>
-    <a href="/auth/sign-out">Sign out</a>
-    <% } else { %>
-    <h1>Welcome to the app, guest. Sign up or Sign in to get started.</h1>
-    <% } %>
   </body>
 </html>
