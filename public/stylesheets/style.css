@@ -21,7 +21,7 @@ body {
 .main-header {
   font-weight: bold;
   color: white;
-  font-size: 5.6em;
+  font-size: 4.0em;
   margin: -160px 20px 0 20px;
 }
 
@@ -38,16 +38,16 @@ body {
   height: 100%;
 }
 
-.auth-links {
+/* .auth-links {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   margin: 0 80px 0 0;
   height: 100%;
-}
+} */
 
-.signup-link,
+/* .signup-link,
 .signin-link {
   text-decoration: none;
   font-size: 1.5em;
@@ -55,27 +55,27 @@ body {
   border-radius: 25px;
   width: 10em;
   text-align: center;
-}
+} */
 
-.signup-link {
+/* .signup-link {
   background-color: #ce4866;
   color: white;
   margin: 0 0 20px 0;
-}
+} */
 
-.signup-link:hover {
+/* .signup-link:hover {
   background-color: #ff5378;
-}
+} */
 
-.signin-link {
+/* .signin-link {
   background-color: #f6e7e7;
   color: #1c2e5b;
   margin: 20px 0 0 0;
-}
+} */
 
-.signin-link:hover {
+/* .signin-link:hover {
   background-color: #ffffff;
-}
+} */
 
 .signin-container,
 .signup-container {
@@ -97,7 +97,7 @@ form {
   justify-content: space-evenly;
   width: 20em;
   height: 50%;
-  background-color: #f6e7e7;
+  background-color: #eee5ed;
   padding: 30px 40px 20px 40px;
   border-radius: 20px;
   color: #4b598e;
@@ -112,12 +112,54 @@ input {
 
 button {
   padding: 10px;
-  background-color: #ce4866;
+  background-color: #b007b9;
   color: white;
   border-radius: 30px;
   border: none;
   margin: 15px 0;
   font-size: 1.1em;
+}
+
+textarea {
+  border: 1px solid rgb(182, 182, 182);
+  padding: 30px;
+  border-radius: 5px;
+  vertical-align: top;
+}
+
+.home-menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.home-buttons {
+  padding: 10px;
+  background-color: #b007b9;
+  color: white;
+  border-radius: 30px;
+  border: none;
+  margin: 15px 0;
+  font-size: 1.1em;
+}
+
+.table-head {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 270px;
+}
+
+.entries {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 270px;
 }
 
 .all-apps-body {

@@ -15,16 +15,16 @@
     <h1>
         <table>
             <thead>
-                <tr>
-                    <th>Term</th>
-                    <th>Definition</th>
-                    <th>Category</th>
+                <tr class="table-head">
+                    <th >Term</th>
+                    <th >Definition</th>
+                    <th >Category</th>
                 </tr>
             </thead>
             <tbody>
             </div>
             <% terms.forEach((term) => { %>
-                <tr>
+                <tr class="entries">
                     <a href="/terms/<%= term._id %>">
                     <td><%= term.term %></td>
                     <td><%= term.definition %></td>

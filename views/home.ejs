@@ -10,10 +10,12 @@
   </head>
   <body>
     <%- include('./partials/_navbar.ejs') %>
-    <h1>What do you want to do?</h1>
-    <a href="/new-term">Create a term</a>
-    <a href="/terms">View all terms</a>
-    <a href="/update">Update a term</a>
+    <div class="home-menu">
+        <h1>What do you want to do?</h1>
+        <a class="home-buttons" href="/new-term">Create a term</a>
+        <a class="home-buttons" href="/terms">View all terms</a>
+        <a class="home-buttons" href="/update">Update a term</a>
+    </div>
     <!--<a href="/delete-term">Delete a term</a> -->
   </body>
 </html>
