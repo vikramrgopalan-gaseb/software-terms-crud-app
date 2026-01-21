@@ -6,25 +6,37 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/stylesheets/show.css" />
-    <title>Term</title>
+    <title>Edit or Delete Terms</title>
   </head>
   <body>
     <%- include('../partials/_navbar.ejs') %>
-    <tr>
-      <td><%= term.term %></td>
-      <td><%= term.definition %></td>
-      <td><%= term.category %></td>
-    </tr>
-
-  <a href="/terms/<%= term._id %>/edit">
-      Edit this term
-    </a>
-
-  <form
-      action="/terms/<%= term._id %>?_method=DELETE"
-      method="POST"
-    >
-      <button type="submit">Delete this term</button>
-  </form>
+   <table>
+            <thead>
+                <tr class="table-head">
+                    <th >Term</th>
+                    <th >Definition</th>
+                    <th >Category</th>
+                </tr>
+            </thead>
+            <tbody>
+            </div>
+            <% terms.forEach((term) => { %>
+                <tr class="entries">
+                  <td><%= term.term %></td>
+                  <td><%= term.definition %></td>
+                  <td><%= term.category %></td>
+                  <td> <a href="/<%= term._id %>/edit">
+                      Edit this term</a></td>
+                  <td>  <form
+                    action="/<%= term._id %>?_method=DELETE"
+                    method="POST"
+                  >
+                    <button type="submit">Delete this term</button>
+                </form></td>
+                </tr>
+            <% }) %>
+            </tbody>
+            </div>
+        </table>
   </body>
 </html>

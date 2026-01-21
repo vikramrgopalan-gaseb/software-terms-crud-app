@@ -113,23 +113,14 @@ app.get("/terms", async (req, res) => {
 
 // Update a term (UPDATE) // CONSIDER ADDING TRY CATCH ERROR HANDLING
 
-// SHOW
-
-app.get('/:termId', async (req, res) => {
-    const currentUser = await User.findById(req.session.user._id);
-    const term = currentUser.terms.id(req.params.termId);
-    res.render('terms/show.ejs', {
-      user: req.session.user, term: currentUser.terms,
-    });
-});
 
 // EDIT
 
 app.get('/:termId/edit', async (req, res) => {
     const currentUser = await User.findById(req.session.user._id);
-    const application = currentUser.applications.id(req.params.applicationId);
+    const term = currentUser.terms.id(req.params.termId);
     res.render('terms/edit.ejs', {
-      user: req.session.user, term: currentUser.terms,
+        user: req.session.user, term: term,
     });
 });
 
@@ -139,19 +130,27 @@ app.put('/:termId', async (req, res) => {
     const currentUser = await User.findById(req.session.user._id)
     const term = currentUser.terms.id(req.params.termId)
     term.set(req.body)
-        await currentUser.save()
+    await currentUser.save()
     res.redirect('/terms')
 });
 
 // DELETE
 
 app.delete('/:termId', async (req, res) => {
-  const currentUser = await User.findById(req.session.user._id)
-  currentUser.terms.id(req.params.termId).deleteOne()
-  await currentUser.save()
-  res.redirect("/terms");
+    const currentUser = await User.findById(req.session.user._id)
+    currentUser.terms.id(req.params.termId).deleteOne()
+    await currentUser.save()
+    res.redirect("/terms");
 });
 
+// SHOW
+
+app.get('/update', async (req, res) => {
+    const currentUser = await User.findById(req.session.user._id);
+    res.render('terms/show.ejs', {
+      user: currentUser, terms: currentUser.terms,
+    });
+});
 /////////////////////////////////////////////////////////
 
 /* app.get('/update', async (req, res) => {

@@ -13,6 +13,8 @@
     <h1>Edit <%= term.term %> at <%= term.term %></h1>
     <form action="/update/<%= term._id %>?_method=PUT" method="POST">
 
+      <!-- CHANGE ABOVE LINE TO MATCH PUT ROUTE -->
+
   <label for="term">Term:</label>
   <input type="text" name="term" id="term" value="<%= term.term %>" />
 
@@ -37,6 +39,9 @@
         <%= term.category === 'dev ops' ? 'selected' : '' %>
       >
         Back End
+
+              <!-- MAKE THIS DEV OPS SELECTION -->
+
       </option>
     </select>
 
