@@ -68,6 +68,115 @@
     background-color: #7ac5f8;
 }
 
+.sign-up-body {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+    background-image: url("https://t3.ftcdn.net/jpg/09/07/52/90/360_F_907529080_Rvvk1QtI2BGnLqA6yolZhVtfz697U4bl.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: #7ac5f8;
+}
+
+.signin-container,
+.signup-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 20em;
+  height: 50%;
+  padding: 30px 40px 20px 40px;
+  border-radius: 20px;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+button {
+  padding: 10px;
+  background-color: #01e2c0;
+  color: white;
+  border-radius: 30px;
+  border: none;
+  margin: 15px 0;
+  font-size: 1.1em;
+}
+
+.new-body {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+    background-image: url("https://t3.ftcdn.net/jpg/09/07/52/90/360_F_907529080_Rvvk1QtI2BGnLqA6yolZhVtfz697U4bl.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: #7ac5f8;
+}
+
+.new-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 50%;
+}
+
+textarea {
+  border: 1px solid rgb(182, 182, 182);
+  padding: 40px;
+  border-radius: 5px;
+  vertical-align: top;
+}
+
+.view-body {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+    background-image: url("https://t3.ftcdn.net/jpg/09/07/52/90/360_F_907529080_Rvvk1QtI2BGnLqA6yolZhVtfz697U4bl.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: #7ac5f8;
+}
+
+.view-table {
+    display: grid;
+    place-items: center;
+}
+
+.table-head {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  font-size: large;
+  color: #01e2c0;
+  gap: 270px;
+}
+
+.entries {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  font-size: small;
+  color: #ffffff;
+  gap: 270px;
+}
+
 .main-header {
   font-weight: bold;
   background-image: url('https://api.deepai.org/job-view-file/0dd44740-dd98-4bbf-bcf4-a9c9324fd9da/outputs/output.jpg');
@@ -120,71 +229,14 @@
   background-color: #ffffff;
 } */
 
-.signin-container,
-.signup-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-}
-
 h1 {
   color: #ffffff;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  width: 20em;
-  height: 50%;
-  background-color: #eee5ed;
-  padding: 30px 40px 20px 40px;
-  border-radius: 20px;
-  color: #4b598e;
-  font-weight: bold;
 }
 
 input {
   border: 1px solid rgb(182, 182, 182);
   padding: 8px;
   border-radius: 10px;
-}
-
-button {
-  padding: 10px;
-  background-color: #b007b9;
-  color: white;
-  border-radius: 30px;
-  border: none;
-  margin: 15px 0;
-  font-size: 1.1em;
-}
-
-textarea {
-  border: 1px solid rgb(182, 182, 182);
-  padding: 30px;
-  border-radius: 5px;
-  vertical-align: top;
-}
-
-
-.table-head {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-evenly;
-  gap: 270px;
-}
-
-.entries {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-evenly;
-  gap: 270px;
 }
 
 .all-apps-body {

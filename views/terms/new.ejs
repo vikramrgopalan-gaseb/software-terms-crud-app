@@ -8,8 +8,9 @@
     <link rel="stylesheet" href="/stylesheets/style.css" />
     <title>Create a term</title>
   </head>
-  <body>
+  <body class="new-body">
     <%- include('../partials/_navbar.ejs') %>
+    <div class="new-container">
     <h1>Create a Term!</h1>
     <form action="/terms" method="POST">
     
@@ -32,6 +33,6 @@
         <button type="submit">Create Term</button>
     
     </form>
-
+    </div>
   </body>
 </html>
