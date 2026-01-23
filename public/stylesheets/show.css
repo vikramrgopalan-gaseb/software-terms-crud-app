@@ -14,6 +14,11 @@
     background-color: #7ac5f8;
 }
 
+.show-table {
+    display: grid;
+    text-align: left;
+}
+
 .show-table-head {
   display: flex;
   flex-direction: row;
@@ -28,7 +33,8 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  font-size: small;
+  text-align: left;
+  font-size: x-small;
   color: #ffffff;
   gap: 250px;
 }
