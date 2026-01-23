@@ -177,6 +177,27 @@ textarea {
   gap: 270px;
 }
 
+.edit-body {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+    background-image: url("https://t3.ftcdn.net/jpg/09/07/52/90/360_F_907529080_Rvvk1QtI2BGnLqA6yolZhVtfz697U4bl.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: #7ac5f8;
+}
+
+.edit-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 50%;
+}
+
 .main-header {
   font-weight: bold;
   background-image: url('https://api.deepai.org/job-view-file/0dd44740-dd98-4bbf-bcf4-a9c9324fd9da/outputs/output.jpg');

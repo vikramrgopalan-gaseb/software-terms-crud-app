@@ -8,17 +8,19 @@
     <link rel="stylesheet" href="/stylesheets/style.css" />
     <title>Editing <%= term.term %></title>
   </head>
-  <body>
+  <body class="edit-body">
     <%- include('../partials/_navbar.ejs') %>
-    <h1>Edit <%= term.term %> at <%= term.term %></h1>
+    <div class="edit-container">
+    <h1>Editing <%= term.term %></h1>
     <form action="/<%= term._id %>?_method=PUT" method="POST">
 
   <label for="term">Term:</label>
   <input type="text" name="term" id="term" value="<%= term.term %>" />
 
   <label for="definition">Definition:</label>
-  <input type="text" name="definition" id="definition" value="<%= term.definition %>"/>
+  <input type="text" name="definition" value="<%= term.definition %>" />
 
+  <label for="category">Category:</label>
   <select id="category" name="category">
       <option
         value="front end"
@@ -42,6 +44,7 @@
 
   <button type="update">Update</button>
 </form>
+</div>
 </div>
   </body>
 </html>
