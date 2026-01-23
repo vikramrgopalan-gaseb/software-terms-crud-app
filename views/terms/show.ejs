@@ -8,11 +8,11 @@
     <link rel="stylesheet" href="/stylesheets/show.css" />
     <title>Edit or Delete Terms</title>
   </head>
-  <body>
+  <body class="show-body">
     <%- include('../partials/_navbar.ejs') %>
-   <table>
+   <table class="show-table">
             <thead>
-                <tr class="table-head">
+                <tr class="show-table-head">
                     <th >Term</th>
                     <th >Definition</th>
                     <th >Category</th>
@@ -21,18 +21,17 @@
             <tbody>
             </div>
             <% terms.forEach((term) => { %>
-                <tr class="entries">
+                <tr class="show-entries">
                   <td><%= term.term %></td>
                   <td><%= term.definition %></td>
                   <td><%= term.category %></td>
-                  <td> <a href="/<%= term._id %>/edit">
+                  <td> <a class="edit-button" href="/<%= term._id %>/edit">
                       Edit this term</a></td>
-                  <td>  <form
-                    action="/<%= term._id %>?_method=DELETE"
-                    method="POST"
-                  >
-                    <button type="submit">Delete this term</button>
-                </form></td>
+                  <td> 
+                    <form action="/<%= term._id %>?_method=DELETE" method="POST">
+                    <button class="delete-button" type="submit">Delete this term</button>
+                </form>
+                </td>
                 </tr>
             <% }) %>
             </tbody>
